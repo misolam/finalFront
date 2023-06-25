@@ -1,16 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { Link, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import ThemeDataProvider from "./contexts/ThemeDataContext";
+import Card from "./components/Card";
+import Detail from "./components/Detail";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>holis</div>
+      <ThemeDataProvider>
+        <Header />
+        <Navbar />
+        <Routes>
+          
+          <Route path="/home" element={<Card/>} />
+          <Route path="/home/:id" element={<Detail/>} />
+          <Route path="/contacto" element={<div>contacto</div>} />
+          <Route path="/destacados" element={<div>destacados</div>} />
+        </Routes>
+      </ThemeDataProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
