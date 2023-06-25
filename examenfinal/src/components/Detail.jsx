@@ -1,29 +1,45 @@
 import "./module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ThemeDataContext } from "../contexts/ThemeDataContext";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 function Detail() {
-  const { data } = useContext(ThemeDataContext);
-  
+  const { data } = useContext(ThemeDataContext); 
   const params = useParams();
-  const userId = params.id;
-;
+
+  const filteredData = data.filter(function (objeto) {
+    return objeto.id === parseInt(params.id);
+  });
+
   
 
+  const userInfo = filteredData[0];
+  console.log(userInfo);
+
+
   return (
-    <>
-        <div>holis</div>
-      {/* <p>name: {user.id} </p>
-    <p>username: {user.username}</p> */}
-    {/* <p>email: {data[userId - 1].email}</p>
-    <p>address: {data[userId - 1].address}</p>
-    <p>phone: {data[userId - 1].phone}</p>
-    <p>website: {data[userId - 1].website}</p>
-    <p>company: {data[userId - 1].company} </p> */}
-    </>
+    <div className="">
+      <h1>{userInfo.name}</h1>
+      <p>Email: {userInfo.email}</p>
+      <p>Phone: {userInfo.phone}</p>
+      <p>Address:</p>
+      <ul>
+        <li>Street: {userInfo.address.street}</li>
+        <li>Suite: {userInfo.address.suite}</li>
+        <li>City: {userInfo.address.city}</li>
+        <li>Zipcode: {userInfo.address.zipcode}</li>
+      </ul>
+      <p>Company:</p>
+      <ul>
+        <li>Name: {userInfo.company.name}</li>
+        <li>Catchphrase: {userInfo.company.catchPhrase}</li>
+        <li>BS: {userInfo.company.bs}</li>
+      </ul>
+      <p>Username: {userInfo.username}</p>
+      <p>Website: {userInfo.website}</p>
+    </div>
   );
 }
 export default Detail;

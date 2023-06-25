@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Card() {
   const { data } = useContext(ThemeDataContext);
-  console.log(data);
+  // console.log(data);
 
 
   return (
