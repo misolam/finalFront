@@ -1,8 +1,6 @@
-import "./module.css"
+import "./module.css";
 
-function Header(){
-    return (
-        <div className="title"> ♥</div>
-    )
+function Header() {
+  return <div className="title"> ♥</div>;
 }
-export default Header
+export default Header;

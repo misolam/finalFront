@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import "./module.css";
-import {useContext } from "react";
-import {ThemeDataContext} from '../contexts/ThemeDataContext'
+import { useContext } from "react";
+import { ThemeDataContext } from "../contexts/ThemeDataContext";
 
 function Navbar() {
-  const {toggleTheme} = useContext(ThemeDataContext)
-
+  const { toggleTheme } = useContext(ThemeDataContext);
 
   return (
     <>
@@ -19,7 +18,7 @@ function Navbar() {
           <li>
             <Link to="/contacto" className="nav-link">
               Contacto
-            </Link> 
+            </Link>
           </li>
           <li>
             <Link to="/destacados" className="nav-link">
@@ -27,7 +26,7 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-      <button onClick={toggleTheme}>cambiar tema </button>
+        <button onClick={toggleTheme}>cambiar tema </button>
       </nav>
     </>
   );
